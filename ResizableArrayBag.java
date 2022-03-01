@@ -242,9 +242,9 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
 		   result.add(elem);
 	   	}
 	   // Set others, a temp arrayBag, for the bag2 and copy the current arrayBag to it.
-	   T[] others = bag2.toArray();
+	   T[] other = bag2.toArray();
 	   // Then, move the element inside to the new arrayBag
-	   for (T elem : others) {
+	   for (T elem : other) {
 	   result.add(elem);
 	   }
 	   
@@ -259,7 +259,7 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
    public BagInterface <T> intersection(BagInterface <T>bag2)
    {
 	// Create a new array that will contain the first element for bag 1
-	   BagInterface <T> result = new ResizableArrayBag<>();
+	   BagInterface <T> tempRestults = new ResizableArrayBag<>();
 	// Create a new array that will contain the new collection/new arrayBag
 	   BagInterface <T> finalResult= new ResizableArrayBag<>();
 	   
@@ -267,13 +267,13 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
 	   T[]mine = this.toArray();
 	   for (T elem:mine)
 	   	{
-		   result.add(elem);
+		   tempRestults.add(elem);
 	   	}
 	// Set others, a temp arrayBag, for the bag2 
-	   T [] Others= bag2.toArray();
-	   for (T elem:Others)
+	   T [] Other= bag2.toArray();
+	   for (T elem:Other)
 	   	{
-		   if (result.contains(elem)) // check if the element is inside result
+		   if (tempRestults.contains(elem)) // check if the element is inside result
 		   {
 			   finalResult.add(elem); // if it is, then add the elements to the final result
 			   
@@ -301,8 +301,8 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
        	}
     // Set others, a temp arrayBag, for the bag2 and check if the element 
     // is part of bag 1. If so proceed and remove it
-       T[] others = bag2.toArray();
-       for (T elem : others) 
+       T[] other = bag2.toArray();
+       for (T elem : other) 
        	{
     	   if(result.contains(elem))
     	   {

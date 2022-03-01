@@ -270,7 +270,7 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
    
    
    @Override
-   public BagInterface<T> difference(BagInterface<T> otherBag) 
+   public BagInterface<T> difference(BagInterface<T> bag2) 
    {
        BagInterface < T > result = new ResizableArrayBag < >();
        T[] mine = this.toArray();
@@ -278,7 +278,7 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
        	{
     	   result.add(elem);
        	}
-       T[] others = otherBag.toArray();
+       T[] others = bag2.toArray();
        for (T elem : others) 
        	{
     	   if(result.contains(elem))

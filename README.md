@@ -12,5 +12,4 @@ Ana's Contribition:
     2.ResizableArrayBagTest: Testet the ResizableArrayBag
 Ana's javadoc: 
 
-
-
+Note: We did not include the BagDriver but did test the files implementing LinkedBagTest and ResizableArrayBagTest.

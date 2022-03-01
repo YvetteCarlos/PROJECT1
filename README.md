@@ -2,7 +2,7 @@
 
 Yvette Carlos
 
-Yvette's contribution:  Baginterface.java , Linkedbag.java, LinkedbagTest.java, I implemented test class for LinkedBagTest.java
+Yvette's contribution:  Baginterface.java , Linkedbag.java, LinkedbagTest.java, I implemented test class for LinkedBag.java
 
 
 

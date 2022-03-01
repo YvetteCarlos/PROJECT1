@@ -227,57 +227,80 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
    // Implement methods Union, Intersecction and Difference
    
    @Override 
+   // union: this method combines the content from 2 bags into a new bag
    public BagInterface <T>union(BagInterface <T>bag2)
    {
+	   // Create a new array that will contain the new collection/new arrayBag 
 	   BagInterface <T> result = new ResizableArrayBag <>();
+	   
+	   // Set mine, a temp arrayBag, for the bag1 and copy the current arrayBag to it. 
 	   T[]mine = this.toArray();
+	   
+	   // Then, move the element inside to the new arrayBag
 	   for (T elem:mine)
 	   	{
 		   result.add(elem);
 	   	}
+	   // Set others, a temp arrayBag, for the bag2 and copy the current arrayBag to it.
 	   T[] others = bag2.toArray();
-	   for (T elem : others) 
-	   	{
-	   	result.add(elem);
-	   	}
+	   // Then, move the element inside to the new arrayBag
+	   for (T elem : others) {
+	   result.add(elem);
+	   }
+	   
+	   // Finally, we can return the new bag with all the elements combined 
 	   return result;
 	   
    }
    
+   
    @Override
+   // Intersection: this method will contain only the element that are part of the 2 bags
    public BagInterface <T> intersection(BagInterface <T>bag2)
    {
+	// Create a new array that will contain the first element for bag 1
 	   BagInterface <T> result = new ResizableArrayBag<>();
+	// Create a new array that will contain the new collection/new arrayBag
 	   BagInterface <T> finalResult= new ResizableArrayBag<>();
 	   
+	// Set mine, a temp arrayBag, for the bag1 and copy the current arrayBag to it. 
 	   T[]mine = this.toArray();
 	   for (T elem:mine)
 	   	{
 		   result.add(elem);
 	   	}
+	// Set others, a temp arrayBag, for the bag2 
 	   T [] Others= bag2.toArray();
 	   for (T elem:Others)
 	   	{
-		   if (result.contains(elem))
+		   if (result.contains(elem)) // check if the element is inside result
 		   {
-			   finalResult.add(elem);
+			   finalResult.add(elem); // if it is, then add the elements to the final result
 			   
 		   }
 	   	}
+	// Finally, we can return the new bag with all the elements combined 
 	   return finalResult;
 	   
    }
    
    
    @Override
+   // Difference : this method will display a new bag that will contain only the 
+   // elements remaining on bag 1 after removing the entries from bag 2
    public BagInterface<T> difference(BagInterface<T> bag2) 
    {
-       BagInterface < T > result = new ResizableArrayBag < >();
+	// Create a new array that will contain the new collection/new arrayBag 
+	   BagInterface < T > result = new ResizableArrayBag < >();
+       
+    // Set mine, a temp arrayBag, for the bag1 and copy the current arrayBag to it. 
        T[] mine = this.toArray();
        for (T elem : mine) 
        	{
     	   result.add(elem);
        	}
+    // Set others, a temp arrayBag, for the bag2 and check if the element 
+    // is part of bag 1. If so proceed and remove it
        T[] others = bag2.toArray();
        for (T elem : others) 
        	{
@@ -286,6 +309,7 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
     		   result.remove(elem);
     	   }
 		}
+    // Finally, we can return the new bag with all the elements combined 
        return result;
    }
 } // end ResizableArrayBag

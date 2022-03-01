@@ -235,6 +235,11 @@ public final class ResizableArrayBag<T> implements BagInterface<T>
 	   	{
 		   result.add(elem);
 	   	}
+	   T[] others = bag2.toArray();
+	   for (T elem : others) 
+	   	{
+	   	result.add(elem);
+	   	}
 	   return result;
 	   
    }
